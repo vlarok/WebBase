@@ -250,6 +250,7 @@
     <Content Include="public\app.js" />
     <Content Include="public\app\product\mvProduct.js" />
     <Content Include="public\app\product\mvProductCtrl.js" />
+    <Content Include="public\app\product\mvProductDetailCtrl.js" />
     <Content Include="public\app\product\productDetail.html" />
     <Content Include="public\app\product\product.html" />
     <Content Include="Scripts\angular-animate.js" />

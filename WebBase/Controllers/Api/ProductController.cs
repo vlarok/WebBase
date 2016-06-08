@@ -26,9 +26,25 @@ namespace WebBase.Controllers.Api
         }
 
         // GET: api/Product/5
-        public string Get(int id)
+        public List<ProductDTO> GetProduct(string id)
         {
-            return "value";
+            List<ProductDTO> product = null;
+            int idint;
+            bool isNumeric = int.TryParse(id, out idint);
+            if (isNumeric)
+            {
+                product = _service.Find(idint);
+            }
+            else
+            {
+                product = _service.FindByName(id);
+            }
+
+
+
+
+            return product;
+
         }
 
         // POST: api/Product

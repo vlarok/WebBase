@@ -12,8 +12,8 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
             templateUrl: '/public/app/product/product.html',
             controller: 'mvProductCtrl'
         })
-        .when('/index/:id', {
-            templateUrl: '/public/app/index/productDetail.html',
+        .when('/product/:id', {
+            templateUrl: '/public/app/product/productDetail.html',
             controller: 'mvProductDetailCtrl'
         })
         .otherwise({ redirectTo: '/404' });
