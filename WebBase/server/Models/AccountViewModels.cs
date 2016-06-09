@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace WebBase.Models
+namespace WebBase.server.Models
 {
     // Models returned by AccountController actions.
 

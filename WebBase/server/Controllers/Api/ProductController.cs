@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.Validation;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using System.Web.Http.Description;
 using BLL.DTO;
 using BLL.Services;
 using Domain;
-using Microsoft.AspNet.Identity;
 
-namespace WebBase.Controllers.Api
+namespace WebBase.server.Controllers.Api
 {
     public class ProductController : ApiController
     {
