@@ -249,6 +249,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="index.html" />
     <Content Include="public\app.js" />
     <Content Include="public\app\product\mvProduct.js" />
     <Content Include="public\app\product\mvProductCtrl.js" />
