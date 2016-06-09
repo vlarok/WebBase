@@ -1,9 +1,10 @@
 ﻿angular.module('app').factory('mvProductCUD', function ($http, $q, mvProduct) {
     return {
-        createProduct: function (newProductData) {
+
+        addOrUpdateProduct: function (newProductData) {
             var newProduct = new mvProduct(newProductData);
             var dfd = $q.defer();
-            newProduct.$save().then(function (response) {
+            newProduct.$addOrUpdate().then(function (response) {
                 dfd.resolve(response);
             }, function (response) {
                 dfd.reject(response.data.reason);

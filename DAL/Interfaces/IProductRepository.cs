@@ -10,7 +10,8 @@ namespace DAL.Interfaces
     public interface IProductRepository
     {
         List<Product> All { get; }
-        void Add(Product product);
+      //  void Add(Product product);
         bool Delete(int product);
+        bool AddOrUpdate(Product product);
     }
 }

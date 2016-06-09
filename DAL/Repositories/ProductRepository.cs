@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,13 +25,13 @@ namespace DAL.Repositories
                 return _ctx.Products.ToList();
             }
         }
-
+        /*
         public void Add(Product product)
         {
             _ctx.Products.Add(product);
             _ctx.SaveChanges();
         }
-
+        */
         public bool Delete(int id)
         {
             try
@@ -44,6 +45,23 @@ namespace DAL.Repositories
             }
             catch (Exception)
             {
+
+                return false;
+            }
+        }
+
+        public bool AddOrUpdate(Product product)
+        {
+            try
+            {
+
+                _ctx.Products.AddOrUpdate(product);
+                _ctx.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
 
                 return false;
             }

@@ -1,5 +1,5 @@
 ﻿
-angular.module('app').controller('mvProductDetailCtrl', function ($scope,  mvProduct, $routeParams) {
+angular.module('app').controller('mvProductDetailCtrl', function ($scope, mvProduct, mvProductCUD, $routeParams, $location) {
 
     
 
@@ -8,6 +8,21 @@ angular.module('app').controller('mvProductDetailCtrl', function ($scope,  mvPro
         $scope.name = product[0].Name;
 
     });
+
+     $scope.update = function() {
+         var newProductData = {
+             productId:$routeParams.id ,
+            name: $scope.name,
+            created: new Date()
+        };
+
+         mvProductCUD.addOrUpdateProduct(newProductData).then(function (response) {
+            $location.path('/');
+           
+        }, function (reason) {
+           
+        });
+    };
 
    
 });

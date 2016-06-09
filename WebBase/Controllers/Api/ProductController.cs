@@ -51,22 +51,23 @@ namespace WebBase.Controllers.Api
 
         }
 
-        // POST: api/Product
-        [ResponseType(typeof(Product))]
-        public IHttpActionResult PostProduct(Product product)
-        {
-
-
-
-            _service.Add(product);
-
-            return CreatedAtRoute("DefaultApi", new { id = product.ProductId }, product);
-        }
+       
 
         // PUT: api/Product/5
-        public void Put(int id, [FromBody]string value)
+        public HttpResponseMessage Put(Product product)
         {
+            //var ser = service;
+            //  _repo.UdpateService(service);/*
+            if (_service.AddOrUpdate(product))
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, product);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.NotModified);
+            }
         }
+
 
         // DELETE: api/Product/5
         public HttpResponseMessage Delete(int id)

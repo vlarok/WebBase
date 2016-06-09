@@ -13,9 +13,10 @@ angular.module('app').controller('mvProductCtrl', function ($scope, mvProduct,mv
             created: new Date()
         };
 
-        mvProductCUD.createProduct(newProductData).then(function (response) {
+        mvProductCUD.addOrUpdateProduct(newProductData).then(function (response) {
             
             $scope.product.push(response);
+            $scope.name = "";
         }, function (reason) {
            
         });

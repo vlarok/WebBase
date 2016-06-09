@@ -36,16 +36,18 @@ namespace BLL.Services
 
         }
 
-        public void Add(Product product)
-        {
-            _repo.Add(product);
-           
-        }
+       
 
         public bool Delete(int id)
         {
             return _repo.Delete(id);
         }
 
+      
+
+        public bool AddOrUpdate(Product product)
+        {
+            return _repo.AddOrUpdate(product);
+        }
     }
 }
