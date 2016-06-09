@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Description;
 using BLL.DTO;
 using BLL.Services;
+using Domain;
+using Microsoft.AspNet.Identity;
 
 namespace WebBase.Controllers.Api
 {
@@ -48,8 +52,15 @@ namespace WebBase.Controllers.Api
         }
 
         // POST: api/Product
-        public void Post([FromBody]string value)
+        [ResponseType(typeof(Product))]
+        public IHttpActionResult PostProduct(Product product)
         {
+
+
+
+            _service.Add(product);
+
+            return CreatedAtRoute("DefaultApi", new { id = product.ProductId }, product);
         }
 
         // PUT: api/Product/5
@@ -58,8 +69,13 @@ namespace WebBase.Controllers.Api
         }
 
         // DELETE: api/Product/5
-        public void Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
+            if (_service.Delete(id))
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, id);
+            }
+            return Request.CreateResponse(HttpStatusCode.NotModified);
         }
     }
 }

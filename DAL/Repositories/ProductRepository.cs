@@ -25,6 +25,30 @@ namespace DAL.Repositories
             }
         }
 
+        public void Add(Product product)
+        {
+            _ctx.Products.Add(product);
+            _ctx.SaveChanges();
+        }
+
+        public bool Delete(int id)
+        {
+            try
+            {
+                Product product = (from s in All
+                                   where s.ProductId == id
+                                   select s).FirstOrDefault();
+                _ctx.Products.Remove(product);
+                _ctx.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
         public List<Product> AllWithComments
         {
             get

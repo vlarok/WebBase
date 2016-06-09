@@ -7,6 +7,7 @@ using BLL.DTO;
 using DAL;
 using DAL.Interfaces;
 using DAL.Repositories;
+using Domain;
 
 namespace BLL.Services
 {
@@ -34,5 +35,17 @@ namespace BLL.Services
             return this._repo.All.Select(x => _factory.createBasicDTO(x)).Where(x => x.Name.Equals(name)).ToList();
 
         }
+
+        public void Add(Product product)
+        {
+            _repo.Add(product);
+           
+        }
+
+        public bool Delete(int id)
+        {
+            return _repo.Delete(id);
+        }
+
     }
 }
