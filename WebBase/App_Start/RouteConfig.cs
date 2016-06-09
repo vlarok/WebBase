@@ -18,7 +18,7 @@ namespace WebBase
                 "{*url}",
                   new { controller = "Home", action = "Index" }
              );*/
-            routes.MapPageRoute("Default", "{*anything}", "~/index.html");
+            routes.MapPageRoute("Default", "{*anything}", "~/public/index.html");
         }
     }
 }

@@ -209,10 +209,14 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="favicon.ico" />
+    <Content Include="App_Data\WebBase.mdf" />
+    <Content Include="App_Data\WebBase_log.ldf">
+      <DependentUpon>WebBase.mdf</DependentUpon>
+    </Content>
+    <Content Include="public\css\bootstrap.min.css" />
     <Content Include="public\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="index.html" />
+    <Content Include="public\index.html" />
     <Content Include="public\app.js" />
     <Content Include="public\app\product\mvProduct.js" />
     <Content Include="public\app\product\mvProductCtrl.js" />
@@ -220,7 +224,6 @@
     <Content Include="public\app\product\mvProductDetailCtrl.js" />
     <Content Include="public\app\product\productDetail.html" />
     <Content Include="public\app\product\product.html" />
-    <Content Include="public\css\bootstrap.min.css" />
     <Content Include="public\css\Site.css" />
     <Content Include="public\scripts\angular-resource.min.js" />
     <Content Include="public\scripts\angular-route.min.js" />
@@ -238,9 +241,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
