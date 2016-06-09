@@ -23,6 +23,5 @@ angular.module('app').controller('mvProductDetailCtrl', function ($scope, mvProd
            
         });
     };
-
    
 });
