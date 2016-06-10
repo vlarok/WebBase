@@ -1,5 +1,18 @@
 ﻿<h1>Uudised</h1>
+<div class="row">
+    <div class="col-md-4">
+        <div class="has-feedback">
+            <label>Otsing</label>
 
-<div ng-repeat="p in product">
+            <input class="form-control" name="search" type="text" ng-model="search.Intro"/>
+
+        </div>
+
+
+    </div>
+
+    
+</div><br /><br />
+<div ng-repeat="p in product  | orderBy:'-Created' | filter:search">
     <a href="view/{{ p.ProductId }}">{{ p.Intro }} ({{ p.Comments.length }})</a>
 </div>
