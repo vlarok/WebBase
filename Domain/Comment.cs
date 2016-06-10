@@ -12,9 +12,17 @@ namespace Domain
         public int CommentId { get; set; }
         public int ProductId { get; set; }
 
-        [MaxLength(2000)]
-        public string CommentText { get; set; }
+        [MaxLength(100)]
+        public string Author { get; set; }
+        [MaxLength(200)]
+        public string Title { get; set; }
+        [MaxLength(500)]
+        public string Body { get; set; }
+        public DateTime Created { get; set; }
         public virtual Product Product { get; set; }
 
     }
 }
+
+
+

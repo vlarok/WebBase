@@ -1,47 +1,5 @@
-﻿<h1>Product</h1>
-<div class="row">
-    <div class="col-md-4">
-        <form name="NewProductForm" novalidate>
+﻿<h1>Uudised</h1>
 
-            <fieldset>
-                <div ng-class="NewProductForm.$invalid ? '' : 'has-success'" class="has-feedback">
-                    <label>New Product</label>
-
-                    <input class="form-control" name="productName" type="text" ng-model="name" required ng-minlength="3" />
-                    <span class="glyphicon glyphicon-ok form-control-feedback"  ng-hide="NewProductForm.$invalid"></span>
-                    <p></p>
-                </div>
-
-                <div>
-                    <button class="btn btn-primary" ng-click="add()" ng-disabled="NewProductForm.$invalid">Add</button>
-                    <a href="/" class="btn">Cancel</a>
-                    <p></p>
-                </div>
-            </fieldset>
-</form>
-    </div>
+<div ng-repeat="p in product">
+    <a href="view/{{ p.ProductId }}">{{ p.Intro }} ({{ p.Comments.length }})</a>
 </div>
-
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="p in product">
-            <td>{{ p.ProductId }}</td>
-            <td>{{ p.Name }}</td>
-            <td>
-                <a href="/product/{{p.ProductId}}" class="btn btn-success"><i class="glyphicon glyphicon-edit"></i></a>
-                
-            </td>
-            <td>
-                <div class="btn btn-danger" ng-click="delete(p)"><i class="glyphicon glyphicon-remove"></i></div>
-            </td>
-        </tr>
-    </tbody>
-</table> 

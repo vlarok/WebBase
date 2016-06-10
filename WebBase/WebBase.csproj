@@ -197,6 +197,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="server\Controllers\Api\CommentController.cs" />
     <Compile Include="server\Controllers\Api\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -213,6 +214,14 @@
     <Content Include="App_Data\WebBase_log.ldf">
       <DependentUpon>WebBase.mdf</DependentUpon>
     </Content>
+    <Content Include="public\app\comment\comment.html" />
+    <Content Include="public\app\comment\mvComment.js" />
+    <Content Include="public\app\comment\mvCommentCtrl.js" />
+    <Content Include="public\app\comment\mvCommentCUD.js" />
+    <Content Include="public\app\product\mvProductAdd.js" />
+    <Content Include="public\app\product\mvProductViewCtrl.js" />
+    <Content Include="public\app\product\productAdd.html" />
+    <Content Include="public\app\product\productView.html" />
     <Content Include="public\css\bootstrap.min.css" />
     <Content Include="public\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

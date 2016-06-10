@@ -22,7 +22,7 @@ namespace BLL.Services
         }
         public List<ProductDTO> getAllProducts()
         {
-            return this._repo.All.Select(x => _factory.createBasicDTO(x)).ToList();
+            return this._repo.All.Select(x => _factory.createBasicDTO(x)).Where(x=>!x.Hidden).ToList();
         }
         public List<ProductDTO> Find(int id)
         {
@@ -32,7 +32,7 @@ namespace BLL.Services
 
         public List<ProductDTO> FindByName(string name)
         {
-            return this._repo.All.Select(x => _factory.createBasicDTO(x)).Where(x => x.Name.Equals(name)).ToList();
+            return this._repo.All.Select(x => _factory.createBasicDTO(x)).Where(x => x.Title.Equals(name)).ToList();
 
         }
 

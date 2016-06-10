@@ -5,9 +5,18 @@
 
             <fieldset>
                 <div ng-class="EditProductForm.$invalid ? '' : 'has-success'" class="has-feedback">
-                    <label>Edit Product</label>
+                    <label>Pealkiri</label>
 
-                    <input class="form-control" name="productName" type="text" ng-model="name" required ng-minlength="3" />
+                    <input class="form-control" name="productName" type="text" ng-model="title" required ng-minlength="3"/>
+                    <span class="glyphicon glyphicon-ok form-control-feedback" ng-hide="NewProductForm.$invalid"></span>
+
+                    <p></p>
+                    <label>Sissejuhatus</label>
+                    <input class="form-control" name="productName" type="text" ng-model="intro" required ng-minlength="3"/>
+                    <span class="glyphicon glyphicon-ok form-control-feedback" ng-hide="NewProductForm.$invalid"></span>
+                    <p></p>
+                    <label>Keha</label>
+                    <textarea class="form-control" name="productName" type="text" ng-model="body" required ng-minlength="3"></textarea>
                     <span class="glyphicon glyphicon-ok form-control-feedback" ng-hide="NewProductForm.$invalid"></span>
                     <p></p>
                 </div>
@@ -19,5 +28,10 @@
                 </div>
             </fieldset>
         </form>
+
+        <ul ng-repeat="comment in comments">
+            <li>
+                <p><label>Pealkiri:</label> {{comment.Title}}</p><label> Autor: </label> {{comment.Author}}<ul><li>{{comment.Body}} </li></ul></li>
+        </ul>
     </div>
 </div>

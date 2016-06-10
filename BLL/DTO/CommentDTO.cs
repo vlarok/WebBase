@@ -9,6 +9,9 @@ namespace BLL.DTO
     public class CommentDTO
     {
         public int CommentId { get; set; }
-        public string CommentText { get; set; }
+        public string Author { get; set; }
+        public string Title { get; set; }
+        public string Body { get; set; }
+        public DateTime Created { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿
-angular.module('app').controller('mvProductCtrl', function ($scope, mvProduct,mvProductCUD) {
+angular.module('app').controller('mvProductAddCtrl', function ($scope, mvProduct,mvProductCUD) {
 
 
 

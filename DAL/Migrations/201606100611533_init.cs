@@ -8,11 +8,30 @@ namespace DAL.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.Comments",
+                c => new
+                    {
+                        CommentId = c.Int(nullable: false, identity: true),
+                        ProductId = c.Int(nullable: false),
+                        Author = c.String(maxLength: 100),
+                        Title = c.String(maxLength: 200),
+                        Body = c.String(maxLength: 500),
+                        Created = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.CommentId)
+                .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
+                .Index(t => t.ProductId);
+            
+            CreateTable(
                 "dbo.Products",
                 c => new
                     {
                         ProductId = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        Title = c.String(maxLength: 200),
+                        Intro = c.String(maxLength: 200),
+                        Body = c.String(maxLength: 2000),
+                        Hidden = c.Boolean(nullable: false),
+                        Created = c.DateTime(nullable: false),
                         UserId = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.ProductId)
@@ -97,6 +116,7 @@ namespace DAL.Migrations
             DropForeignKey("dbo.Products", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Comments", "ProductId", "dbo.Products");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
@@ -104,12 +124,14 @@ namespace DAL.Migrations
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.Products", new[] { "UserId" });
+            DropIndex("dbo.Comments", new[] { "ProductId" });
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.Products");
+            DropTable("dbo.Comments");
         }
     }
 }

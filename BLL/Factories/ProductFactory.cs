@@ -17,8 +17,12 @@ namespace BLL.Factories
             return new DTO.ProductDTO()
             {
                 ProductId = product.ProductId,
-                Name = product.Name,
-                Comments = product.Comments.Select(s => new CommentDTO() { CommentId = s.CommentId, CommentText = s.CommentText }).ToList()
+                Title = product.Title,
+                Intro = product.Intro,
+                Body = product.Body,
+                Created = product.Created,
+                Hidden = product.Hidden,
+                Comments = product.Comments.Select(s => new CommentDTO() { CommentId = s.CommentId,Title=s.Title, Body = s.Body, Author = s.Author, Created = s.Created}).ToList()
             };
 
 

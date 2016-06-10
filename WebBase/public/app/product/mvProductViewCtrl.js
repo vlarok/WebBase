@@ -1,10 +1,11 @@
 ﻿
-angular.module('app').controller('mvProductDetailCtrl', function ($scope, mvProduct, mvProductCUD, $routeParams, $location) {
+angular.module('app').controller('mvProductViewCtrl', function ($scope, mvProduct, mvProductCUD, $routeParams, $location) {
 
     
 
 
     mvProduct.get({ id: $routeParams.id }, function (product) {
+        $scope.id = product[0].ProductId;
         $scope.title = product[0].Title;
       
         $scope.intro= product[0].Intro;
