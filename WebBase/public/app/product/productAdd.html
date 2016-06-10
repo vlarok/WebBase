@@ -30,9 +30,7 @@
 </form>
     </div>
 </div>
-<div ng-repeat="p in product">
-    <a href="">{{ p.Intro }} ({{ p.Comments.length }})</a>
-</div>
+
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -51,13 +49,9 @@
         <tr ng-repeat="p in product">
             <td>{{ p.Title }}</td>
             <td>{{ p.Intro }}</td>
-            <td>{{ p.Body }}</td>
+            <td>{{ p.Body.length }}</td>
             <td>{{ p.Created }}</td>
-            <td><ul ng-repeat="comment in p.Comments">
-    <li>
-        <strong>{{comment.Title}}</strong><strong>Autor: </strong>{{comment.Author}}<ul><li>{{comment.Body}} </li></ul>
-    </li>
-</ul></td>
+            <td>{{ p.Comments.length }}</td>
             <td>
                 <a href="/product/{{p.ProductId}}" class="btn btn-success"><i class="glyphicon glyphicon-edit"></i></a>
 

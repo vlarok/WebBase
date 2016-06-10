@@ -19,14 +19,12 @@ namespace WebBase.server.Controllers.Api
 
 
 
-        // PUT: api/Product/5
-        public HttpResponseMessage Put(Comment product)
+  
+        public HttpResponseMessage Put(Comment comment)
         {
-            //var ser = service;
-            //  _repo.UdpateService(service);/*
-            if (_service.AddOrUpdate(product))
+            if (_service.AddOrUpdate(comment))
             {
-                return Request.CreateResponse(HttpStatusCode.OK, product);
+                return Request.CreateResponse(HttpStatusCode.OK, comment);
             }
             else
             {
